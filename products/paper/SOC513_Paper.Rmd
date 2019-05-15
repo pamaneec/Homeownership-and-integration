@@ -1,0 +1,54 @@
+---
+output:
+  pdf_document:
+    citation_package: natbib
+    fig_caption: yes
+    template: ./resources/aog-latex-ms.tex
+  word_document:
+    reference_docx: ./resources/aog_word_style.docx
+fontfamily: mathpazo
+fontsize: 11pt
+anonymous: false
+endnotes: false
+pagenumber: 1
+bibliography: ../project.bib
+biblio-style: ./resources/ajs.bst
+title: "Homeownership as a key for immigrants integration"
+author:
+- affiliation: University of Oregon, School of Architecture & Environment
+  name: Pamanee Chaiwat
+keywords: immigrants, homeownership, assimilation, integration, Mexican, Latinos, San Francisco Bay Area
+thanks: Thanks to people and stuff
+abstract: This is a test abstract
+---
+
+# Introduction
+Migrations define many challenges for architects and planners. Immigrants play important roles in urban changes specifically in labor market shift, economic growth, settlement and residential patterns, as well as cultural affluence. The controversy of racial segregation and discrimination in the US creates opposition against immigrants which leads to unachievable integration regardless of their contributions to US economy. Within the scope of architecture scholarship, a counter question must be asked: how have built environment and a city play role in facilitating integration of these population. To start this examination, the study begins will a statistical studies of immigrants’ homeownership in the US. Homeownership not only symbolizes the American dream but also signifies economic competency which in many cases achievable through education attainment, language proficiency, and attachment to new host society. 
+
+Mayer and Lee’s double cohort analysis of homeownership reports the differences among native born and foreign born cohort. They evaluate the effect of income, education, language proficiency, family status, and their homeownership attainment (1998). Alba and Logan (1992) conducted a homeownership research across twelve ethnic groups. They explain that homeownership illustrate wealth accumulation associated with both socioeconomic and residential mobility. Additionally, house is a transferable asset benefitting their next generation. They also differentiate homeownership as an indicator of assimilation or stratification base on location and ethnic cohesion. Their findings conclude that homeownership contributes to a process of incorporation of minority groups. In alignment with Alba and Logan, “Assimilation today” reports a better education attainment and occupational choice of second generation Latinos. These rate increase similar to homeownership rate that rise from 9.3% in 1990 to 58% in 2008 (Mayers & Pitkin, 2010). They also suggest that integration happens at a faster rate when neighborhood residents have  access to citizenship and homeownership.
+
+Using homeownership as an indicator of assimilation that accelerate integration, this paper presents the statistical analysis education and economic attainment prior to and after immigrants obtain homeownership. Investigating how have homeownership influences these factors and their trajectories will helps identify housing strategy. U.S. Census Bureau survey data and PEW research are the two comprehensive data sources. The study focuses at Latinos immigrants in San Francisco Bay Area. San Francisco Bay Area is chosen due to its high component of immigrants population in addition to the historical context of immigrants destination. The city also acts as both arrival city as well as destination city demonstrating combination of temporal and permanent settlement. Latinos ethnic group is chosen because of their high rate of population making the information more accessible than other ethnic groups. 
+
+The purpose of this study is to explore the relationship of homeownership and how have it accelerated education and economic integration of immigrant’s families into American Society. Derive from social sciences researches which look at how have immigrants of different racial groups varied in homeownership or how have time of entry the US affected the accessibility to buy a house, this study; however, intents to point out the significant of home as a tool for integration. It is intentionally overlook crowding and English proficiency aspects as culture can become the key influencer of a family structure or language used than socioeconomic constraints. Nevertheless, the significant of homeownership has been a gap in previous studies and is itself important in strategize the integration. 
+
+# Background
+
+# Data and Methods
+
+# Results
+
+# Conclusions
+
+# References
+Alba, R., & Logan, J. (1992). Assimilation and Stratification in the Homeownership Patterns of Racial and Ethnic Groups. The International Migration Review, 26(4), 1314-1341. doi:10.2307/2546885
+
+Kochhar, R., Gonzalez-Barrera, A., & Dockterman, D. (2009). Minorities, Immigrants and Homeownership
+Through Boom and Bust. Pew Research Center. Retrieve from https://www.pewhispanic.org/2009/05/12/through-boom-and-bust/
+
+Myers, D., & Lee, S. (1998). Immigrant Trajectories into Homeownership: A Temporal Analysis of Residential Assimilation. The International Migration Review, 32(3), 593-625. doi:10.2307/2547765
+
+Mayers, D., & Pitkin, J. (2010). Assimilation Today: New Evidence Shows the Latest Immigrants to America Are Following in Our History’s Footsteps. Center for American Progress. retrieve from https://dornsifecms.usc.edu/assets/sites/731/docs/Assimilation_Today-semifinal083010.PDF
+
+Papademetriou, G. D., Ray, B., & Jachimowicz, M. (2004). Immigrants and Homeownership in Urban America: An Examination of Nativity, Socio-Economic Status and Place. Migration Policy Institute. retrieve from https://www.migrationpolicy.org/research/immigrants-and-homeownership-urban-america-examination-nativity-socio-economic-status-and
+
+
