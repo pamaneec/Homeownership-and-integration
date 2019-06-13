@@ -17,27 +17,123 @@ title: "Homeownership as a key for immigrants integration"
 author:
 - affiliation: University of Oregon, School of Architecture & Environment
   name: Pamanee Chaiwat
-keywords: immigrants, homeownership, assimilation, integration, Mexican, Latinos, San Francisco Bay Area
+keywords: immigrants, homeownership, assimilation, integration, Latinos, Hispanic
 thanks: Thanks to people and stuff
 abstract: This is a test abstract
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+load("../../analysis/output/analytical_data.RData")
+library(ggplot2)
+library(texreg)
+```
+
 # Introduction
 Migrations define many challenges for architects and planners. Immigrants play important roles in urban changes specifically in labor market shift, economic growth, settlement and residential patterns, as well as cultural affluence. The controversy of racial segregation and discrimination in the US creates opposition against immigrants which leads to unachievable integration regardless of their contributions to US economy. Within the scope of architecture scholarship, a counter question must be asked: how have built environment and a city play role in facilitating integration of these population. To start this examination, the study begins will a statistical studies of immigrants’ homeownership in the US. Homeownership not only symbolizes the American dream but also signifies economic competency which in many cases achievable through education attainment, language proficiency, and attachment to new host society. 
-
-Mayer and Lee’s double cohort analysis of homeownership reports the differences among native born and foreign born cohort. They evaluate the effect of income, education, language proficiency, family status, and their homeownership attainment (1998). Alba and Logan (1992) conducted a homeownership research across twelve ethnic groups. They explain that homeownership illustrate wealth accumulation associated with both socioeconomic and residential mobility. Additionally, house is a transferable asset benefitting their next generation. They also differentiate homeownership as an indicator of assimilation or stratification base on location and ethnic cohesion. Their findings conclude that homeownership contributes to a process of incorporation of minority groups. In alignment with Alba and Logan, “Assimilation today” reports a better education attainment and occupational choice of second generation Latinos. These rate increase similar to homeownership rate that rise from 9.3% in 1990 to 58% in 2008 (Mayers & Pitkin, 2010). They also suggest that integration happens at a faster rate when neighborhood residents have  access to citizenship and homeownership.
-
-Using homeownership as an indicator of assimilation that accelerate integration, this paper presents the statistical analysis education and economic attainment prior to and after immigrants obtain homeownership. Investigating how have homeownership influences these factors and their trajectories will helps identify housing strategy. U.S. Census Bureau survey data and PEW research are the two comprehensive data sources. The study focuses at Latinos immigrants in San Francisco Bay Area. San Francisco Bay Area is chosen due to its high component of immigrants population in addition to the historical context of immigrants destination. The city also acts as both arrival city as well as destination city demonstrating combination of temporal and permanent settlement. Latinos ethnic group is chosen because of their high rate of population making the information more accessible than other ethnic groups. 
 
 The purpose of this study is to explore the relationship of homeownership and how have it accelerated education and economic integration of immigrant’s families into American Society. Derive from social sciences researches which look at how have immigrants of different racial groups varied in homeownership or how have time of entry the US affected the accessibility to buy a house, this study; however, intents to point out the significant of home as a tool for integration. It is intentionally overlook crowding and English proficiency aspects as culture can become the key influencer of a family structure or language used than socioeconomic constraints. Nevertheless, the significant of homeownership has been a gap in previous studies and is itself important in strategize the integration. 
 
 # Background
+Mayer and Lee’s double cohort analysis of homeownership reports the differences among native born and foreign born cohort. They evaluate the effect of income, education, language proficiency, family status, and their homeownership attainment (1998). Alba and Logan (1992) conducted a homeownership research across twelve ethnic groups. They explain that homeownership illustrate wealth accumulation associated with both socioeconomic and residential mobility. Additionally, house is a transferable asset benefitting their next generation. They also differentiate homeownership as an indicator of assimilation or stratification base on location and ethnic cohesion. Their findings conclude that homeownership contributes to a process of incorporation of minority groups. In alignment with Alba and Logan, “Assimilation today” reports a better education attainment and occupational choice of second generation Latinos. These rate increase similar to homeownership rate that rise from 9.3% in 1990 to 58% in 2008 (Mayers & Pitkin, 2010). They also suggest that integration happens at a faster rate when neighborhood residents have  access to citizenship and homeownership.
+
 
 # Data and Methods
+Using homeownership as an indicator of assimilation that accelerate integration, this paper presents the statistical analysis education and economic attainment prior to and after immigrants obtain homeownership. Investigating how have homeownership influences these factors and their trajectories will helps identify housing strategy. U.S. Census Bureau survey data and PEW research are the two comprehensive data sources. The study focuses at Latinos immigrants in San Francisco Bay Area. San Francisco Bay Area is chosen due to its high component of immigrants population in addition to the historical context of immigrants destination. The city also acts as both arrival city as well as destination city demonstrating combination of temporal and permanent settlement. Latinos ethnic group is chosen because of their high rate of population making the information more accessible than other ethnic groups. 
+
+Proportional odds logistic regression
+
+```{r polr-experience}
+model1<-polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model2<- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model3<- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model4<- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model5<- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+texreg(list(model1, model2, model3, model4, model5), digits=5,
+       caption="Home Ownership and Immigrants Experience",
+       caption.above = TRUE)
+
+```
+## Model 1: Immigrants Experience in the Treatment of the Poor.
+
+Model 1 looks specifically at immigrants' perspective on the treatment of the poor comparing their experience in their home country and in the US. Homeownership or nativity do not have any significance in their experience.
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_better_country, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: Treatment of the poor") +
+  xlab("Treatment of the poor") + ylab("property")+
+  theme_bw()
+```
+
+## Model 2: Immigrants Experience in the Moral Values of Society
+
+Model 2 looks at immigrants' perspective on the moral values of society comparing their experience in their home country and in the US. Nativity impacts their moral values experience. In contrast, homeownership does not have positive impact in their perception. Immigrants rather perceive that the society is not better than their home country. 
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_moral, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Moral Values of Society") +
+  xlab("Moral Values of Society") + ylab("property")+
+  theme_bw()
+```
+
+## Model 3: Immigrants Experience in the Moral Values of Society
+
+Model 3 looks specifically at immigrants' perspective on opportunity to get ahead comparing their experience in their home country and in the US. Neither homeownership nor nativity impact their opportunity experience. Regardless of the homeownership and nativity, the respondants strongly experience better experience in the US. 
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_opportunity, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Opportunity to Get Ahead") +
+  xlab("Opportunity to Get Ahead") + ylab("property")+
+  theme_bw()
+```
+
+## Model 4: Immigrants Experience in the condition of raising children
+
+Model 4 looks specifically at immigrants' perspective on the condition of raising children comparing their experience in their home country and in the US. Nativity greatly effects their experience in raising children. This illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Conditions for Raising Children") +
+  xlab("Conditions for Raising Children") + ylab("property")+
+  theme_bw()
+```
+
+## Model 5: Immigrants Experience in the Strengh of Family Ties
+
+Model 4 looks specifically at immigrants' perspective on the condition of raising children comparing their experience in their home country and in the US. Nativity greatly effects their experience in raising children. This illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Strength of Family Ties") +
+  xlab("Strength of Family Ties") + ylab("property")+
+  theme_bw()
+```
 
 # Results
 
+
+
 # Conclusions
+Homeownership remains the key factor in signifying self perception as accuiring American Dreams. However, the ownership do not signify any significant differences in immigrants' experiences. 
+
 
 # References
 Alba, R., & Logan, J. (1992). Assimilation and Stratification in the Homeownership Patterns of Racial and Ethnic Groups. The International Migration Review, 26(4), 1314-1341. doi:10.2307/2546885
