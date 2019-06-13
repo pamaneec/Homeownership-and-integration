@@ -9,11 +9,154 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
 source("useful_functions.R")
+load("output/analytical_data.RData")
+library(ggplot2)
+library(texreg)
+library(MASS)
 ```
 
-# Introduction
+
+```{r functions, echo=FALSE}
+porl <- function(formula, imputations) 
+  b <- se <- R2 <- NULL
+  
+  for(i in 1:imputations$m) 
+
+    imputation <- complete(imputations, i)
+    ```
+    
+    ```{r imputations, echo=FALSE}
+imputations <- mice(pew, 5, printFlag=FALSE)
+```
+
+# Univariate plots Distributions
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations, 1), 
+       aes(x=american_perc, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Identity Perception") +
+  xlab("Self Perception") + ylab("property")+
+  theme_bw()
+```
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=culture_view, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Identity Perception") +
+  xlab("Cultural Differences") + ylab("property")+
+  theme_bw()
+```
+
+
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=home_investment, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Perception of Buying a Home") +
+  xlab("Buying a home is Long Term Investment in the US") + ylab("property")+
+  theme_bw()
+```
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_better_country, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: Treatment of the poor") +
+  xlab("Treatment of the poor") + ylab("property")+
+  theme_bw()
+```
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_moral, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Moral Values of Society") +
+  xlab("Moral Values of Society") + ylab("property")+
+  theme_bw()
+```
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_opportunity, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Opportunity to Get Ahead") +
+  xlab("Opportunity to Get Ahead") + ylab("property")+
+  theme_bw()
+```
+
+
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Conditions for Raising Children") +
+  xlab("Conditions for Raising Children") + ylab("property")+
+  theme_bw()
+```
+
+```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Strength of Family Ties") +
+  xlab("Strength of Family Ties") + ylab("property")+
+  theme_bw()
+```
+
+```{r polr-example}
+model1_better_country<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model2_moral <- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model3_opportunity <- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model4_raising_child <- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model5_family_ties <- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+screenreg(list(model1_better_country, model2_moral, model3_opportunity, model4_raising_child, model5_family_ties), digits=5)
+
+```
+
+# Bivariate plots
 <a href="#top">Back to top</a>
 
 Use this R Markdown to perform the main analysis for the project. I use this basically as a lab notebook. It contains the main analysis and a variety of sensitivity analysis. The code in this documents serves as a baseline for the eventual tables and figures that will go into the paper. At the same time it will serve as a record of all supplementary analyses performed. 
+
+```{r vote-generation, echo=FALSE, fig.cap="", fig.align='center'}
+```
+# Rune some models
+```{r xxx-model, restult = 'asis'}
+as.numeric(analytical_data$religion)
+model <- lm()
+htmlreg(model, 
+        caption = "",
+        caption.above = TRUE
+        doctype = FALSE)
+```
+
+```{r polr-example}
+model1_better_country<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model2_moral <- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model3_opportunity <- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model4_raising_child <- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model5_family_ties <- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+screenreg(list(model1_better_country, model2_moral, model3_opportunity, model4_raising_child, model5_family_ties), digits=5)
+
+```
+
