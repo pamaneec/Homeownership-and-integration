@@ -15,6 +15,19 @@ load("output/analytical_data.RData")
 library(ggplot2)
 library(texreg)
 library(MASS)
+
+convertModel <- function(model) {
+  tr <- createtexreg(
+    coef.names = rownames(model$coef), 
+    coef = model$coef$b.pool, 
+    se = model$coef$se.pool, 
+    pvalues = model$coef$pvalue.pool,
+    gof.names = c("R2","BIC (null)","N"), 
+    gof = c(model$r.squared, model$bic.null, model$n), 
+    gof.decimal = c(T,F,F)
+  )
+}
+
 ```
 
 
@@ -32,7 +45,7 @@ imputations <- mice(pew, 5, printFlag=FALSE)
 ```
 
 # Univariate plots Distributions
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations, 1), 
        aes(x=american_perc, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -43,7 +56,7 @@ ggplot(complete(imputations, 1),
   theme_bw()
 ```
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=culture_view, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -56,7 +69,18 @@ ggplot(complete(imputations,1),
 
 
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(complete(imputations,1),
+       aes(x=minor_succe, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Identity Perception") +
+  xlab("Successful Minority in the US") + ylab("property")+
+  theme_bw()
+```
+
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=home_investment, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -67,7 +91,7 @@ ggplot(complete(imputations,1),
   theme_bw()
 ```
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=exper_better_country, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -78,7 +102,7 @@ ggplot(complete(imputations,1),
   theme_bw()
 ```
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=exper_moral, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -89,7 +113,7 @@ ggplot(complete(imputations,1),
   theme_bw()
 ```
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=exper_opportunity, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -102,7 +126,7 @@ ggplot(complete(imputations,1),
 
 
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -112,7 +136,7 @@ ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, 
   theme_bw()
 ```
 
-```{r generation, echo=FALSE, fig.cap="", fig.align='center'}
+```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
        aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
@@ -123,13 +147,13 @@ ggplot(complete(imputations,1),
   theme_bw()
 ```
 
-```{r polr-example}
-model1_better_country<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model2_moral <- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model3_opportunity <- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model4_raising_child <- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model5_family_ties <- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-screenreg(list(model1_better_country, model2_moral, model3_opportunity, model4_raising_child, model5_family_ties), digits=5)
+```{r polr-experience}
+model1<-polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model2<- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model3<- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model4<- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model5<- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+screenreg(list(model1, model2, model3, model4, model5), digits=5)
 
 ```
 
@@ -150,13 +174,44 @@ htmlreg(model,
         doctype = FALSE)
 ```
 
-```{r polr-example}
-model1_better_country<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model2_moral <- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model3_opportunity <- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model4_raising_child <- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model5_family_ties <- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-screenreg(list(model1_better_country, model2_moral, model3_opportunity, model4_raising_child, model5_family_ties), digits=5)
+```{r stargazer_example, results="asis", echo=FALSE, error=FALSE, message=FALSE}
+model6 <- glm(american_perc~home_own+nativity+I(age-40)+I((age-40)^2), imputations)
+model7 <- glm(american_perc~home_own+home_investment+nativity+I(age-40)+I((age-40)^2), imputations)
+model8 <- glm(american_perc~home_own+exper_moral+exper_opportunity+exper_raising_child+exper_better_country+home_investment+nativity+I(age-40)+I((age-40)^2), imputations)
+model9 <- glm(american_perc~exper_moral+exper_opportunity+exper_raising_child+exper_better_country+home_investment+nativity+I(age-40)+I((age-40)^2), imputations)
+
+
+texreg(lapply(list(model6, model7, model8, model9), convertModel),
+          custom.coef.names = c("Intercept",
+                            "Own Home",
+                             "Nativity",
+                            "Age under 40",
+                            "Age over 40",
+                             "Moral Values of Society",
+                             "Opportunity to Get Ahead",
+                            "Condition of Raing Children",
+                             "Treatment of the Poor"),
+       caption="OLS regression models predicting Self Perception as American",
+       caption.above = TRUE)
+
+```
+
+
+
+screenreg(lapply(list(model1, model2, model3, model4, model5)),
+       custom.coef.names = c("Intercept",
+                            "Own Home",
+                             "Nativity",
+                            "Age under 40",
+                            "Age over 40",
+                             "Moral Values of Society",
+                             "Opportunity to Get Ahead",
+                            "Condition of Raing Children",
+                             "Treatment of the Poor"),
+   
+              
+       caption="OLS regression models predicting Identity Perception",
+       caption.above = TRUE)
 
 ```
 
