@@ -1,0 +1,539 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.15)  13 JUN 2019 22:43
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**SOC513_Paper.tex
+(./SOC513_Paper.tex
+LaTeX2e <2018-12-01>
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen111
+)) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen112
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks17
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks18
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks21
+\float@box=\box29
+\@float@everytoks=\toks22
+\@floatcapt=\box30
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen120
+\ar@mcellbox=\box31
+\extrarowheight=\dimen121
+\NC@list=\toks23
+\extratabsurround=\skip46
+\backup@length=\skip47
+\ar@cellbox=\box32
+)) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/mathpazo.sty
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup4
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks24
+\inpenc@posthook=\toks25
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/abstract/abstract.sty
+Package: abstract 2009/06/08 v1.2a configurable abstracts
+\abstitleskip=\skip48
+\absleftindent=\skip49
+\absrightindent=\skip50
+\absparindent=\skip51
+\absparsep=\skip52
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box33
+\beforetitleunit=\skip53
+\aftertitleunit=\skip54
+\ttl@plus=\dimen122
+\ttl@minus=\dimen123
+\ttl@toksa=\toks26
+\titlewidth=\dimen124
+\titlewidthlast=\dimen125
+\titlewidthfirst=\dimen126
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip55
+\bibsep=\skip56
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count104
+)
+\c@hypothesis=\count105
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-hyperre
+f.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-generic
+.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen127
+\Hy@linkcounter=\count106
+\Hy@pagecounter=\count107
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count108
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4393.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count109
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen128
+\Fld@menulength=\count110
+\Field@Width=\dimen129
+\Fld@charsize=\dimen130
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count114
+\c@bookmark@seq@number=\count115
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/oberdiek/rerunfilecheck.s
+ty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip57
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+) (/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+Package hyperref Info: Option `breaklinks' set `true' on input line 139.
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 139.
+
+Package hyperref Info: Option `colorlinks' set `true' on input line 139.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/endnotes/endnotes.sty
+\c@endnote=\count116
+\endnotesep=\dimen131
+\@enotes=\write3
+)
+\normalparindent=\skip58
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen132
+\captionmargin@=\dimen133
+\captionwidth=\dimen134
+\caption@tempdima=\dimen135
+\caption@indent=\dimen136
+\caption@parindent=\dimen137
+\caption@hangindent=\dimen138
+)
+\c@caption@flags=\count117
+\c@ContinuedFloat=\count118
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+No file SOC513_Paper.aux.
+\openout1 = `SOC513_Paper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 153.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box34
+Package hyperref Info: Link coloring ON on input line 153.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/generic/oberdiek/gettitlestring
+.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count119
+)
+LaTeX Info: Redefining \ref on input line 153.
+LaTeX Info: Redefining \pageref on input line 153.
+LaTeX Info: Redefining \nameref on input line 153.
+\@outlinefile=\write4
+\openout4 = `SOC513_Paper.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Calculating math sizes for size <18> on input line 166.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 166.
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 166
+.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 166
+.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 166
+.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 166
+.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 166.
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <13.6799> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13.6799> not available
+(Font)              size <14.4> substituted on input line 166.
+
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <11> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 171.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 171.
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <11> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 171.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 212.
+[1
+
+{/Users/pchaiwat/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Overfull \hbox (3.81657pt too wide) in paragraph at lines 272--277
+\T1/ppl/m/n/10.95 Data in this study comes from Pew His-panic Cen-ter 2011 Na-t
+ional Sur-vey of Lati-nos (NSL2011).The
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 282.
+
+(/Users/pchaiwat/Library/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## home\_ownOwn         & $0.24973$       & $-0.11570$    
+ & $0.24160$   & $0.27648$       & $-0.24042$     \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ##                      & $(0.14494)$     & $(0.12296)$   
+ & $(0.20146)$ & $(0.14404)$     & $(0.12275)$    \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## nativityForeign-born & $0.27315$       & $-0.31658^{*}$
+ & $-0.07254$  & $-0.45590^{**}$ & $-0.22644$     \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ##                      & $(0.14722)$     & $(0.12806)$   
+ & $(0.20733)$ & $(0.15400)$     & $(0.12753)$    \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## I(age - 40)          & $0.01825^{***}$ & $-0.00180$    
+ & $0.00432$   & $-0.01310^{*}$  & $0.01451^{**}$ \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ##                      & $(0.00539)$     & $(0.00488)$   
+ & $(0.00760)$ & $(0.00590)$     & $(0.00486)$    \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## I((age - 40)^2)      & $-0.00046$      & $0.00039$     
+ & $-0.00022$  & $0.00043$       & $0.00017$      \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ##                      & $(0.00023)$     & $(0.00021)$   
+ & $(0.00030)$ & $(0.00024)$     & $(0.00021)$    \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## AIC                  & 1589.16211      & 2200.35789    
+ & 907.87148   & 1651.42055      & 2231.45680     \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## BIC                  & 1618.80925      & 2229.94672    
+ & 937.60504   & 1681.10240      & 2261.08651     \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## Log Likelihood       & -788.58105      & -1094.17894   
+ & -447.93574  & -819.71027      & -1109.72840    \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## Deviance             & 1577.16211      & 2188.35789    
+ & 895.87148   & 1639.42055      & 2219.45680     \\[] 
+ []
+
+
+Overfull \hbox (152.66579pt too wide) in paragraph at lines 311--311
+[]\T1/cmtt/m/n/10.95 ## Num. obs.            & 1034            & 1024          
+ & 1049        & 1040            & 1031           \\[] 
+ []
+
+[2]
+! Undefined control sequence.
+l.324 {\centering \includegraphics
+                                  {SOC513_Paper_files/figure-latex/figure 1-1} 
+Here is how much of TeX's memory you used:
+ 11135 strings out of 494553
+ 160239 string characters out of 6174236
+ 250273 words of memory out of 5000000
+ 14701 multiletter control sequences out of 15000+600000
+ 32322 words of font info for 66 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 36i,6n,38p,247b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+!  ==> Fatal error occurred, no output PDF file produced!

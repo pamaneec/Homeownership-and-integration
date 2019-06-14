@@ -126,8 +126,9 @@ ggplot(complete(imputations,1),
 
 
 
-```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
+```{r figure 4, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_raising_child)), 
+       aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
@@ -138,6 +139,17 @@ ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, 
 
 ```{r stargazer, echo=FALSE, fig.cap="", fig.align='center'}
 ggplot(complete(imputations,1),
+       aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Immigrants Experience: the Strength of Family Ties") +
+  xlab("Strength of Family Ties") + ylab("property")+
+  theme_bw()
+```
+
+```{r figure test, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_family_ties)), 
        aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -174,6 +186,17 @@ htmlreg(model,
         doctype = FALSE)
 ```
 
+```{r polr-perception}
+model6<- glm(american_perc~home_own+home_investment+I(age-40), data=imputation)
+model7<- glm(american_perc~nativity+I(age-40), data=imputation)
+model8<- glm(american_perc~home_own+nativity+I(age-40), data=imputation)
+model9<- glm(american_perc~home_own+exper_moral+exper_opportunity+exper_raising_child+home_investment+nativity+I(age-40), data=imputation)
+
+
+screenreg(list(model6, model7, model8, model9), digits=5)
+
+```
+
 ```{r stargazer_example, results="asis", echo=FALSE, error=FALSE, message=FALSE}
 model6 <- glm(american_perc~home_own+nativity+I(age-40)+I((age-40)^2), imputations)
 model7 <- glm(american_perc~home_own+home_investment+nativity+I(age-40)+I((age-40)^2), imputations)
@@ -195,23 +218,3 @@ texreg(lapply(list(model6, model7, model8, model9), convertModel),
        caption.above = TRUE)
 
 ```
-
-
-
-screenreg(lapply(list(model1, model2, model3, model4, model5)),
-       custom.coef.names = c("Intercept",
-                            "Own Home",
-                             "Nativity",
-                            "Age under 40",
-                            "Age over 40",
-                             "Moral Values of Society",
-                             "Opportunity to Get Ahead",
-                            "Condition of Raing Children",
-                             "Treatment of the Poor"),
-   
-              
-       caption="OLS regression models predicting Identity Perception",
-       caption.above = TRUE)
-
-```
-

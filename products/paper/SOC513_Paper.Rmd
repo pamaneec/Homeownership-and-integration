@@ -18,8 +18,8 @@ author:
 - affiliation: University of Oregon, School of Architecture & Environment
   name: Pamanee Chaiwat
 keywords: immigrants, homeownership, assimilation, integration, Latinos, Hispanic
-thanks: Thanks to people and stuff
-abstract: This is a test abstract
+thanks: Thanks to Aaron for all your kind help and patience.
+abstract: Homeownership has been used as an indication of acquiring American Dreams in many immigrants studies. This study examines the relationship between immigrants experiences, identity and their homeownership and nativity status. It reveals that even though immigrants are likely to perceive themselves as "typical American" if they own a home, the homeownership has insignificant impact to their experience in the US or even worsen in some cases. However, owning a home in the US indicates a weaker family ties in immigrants’ family and thus signifying permanent settlement in the US rather than their country of origin.
 ---
 
 ```{r setup, include=FALSE}
@@ -27,6 +27,7 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
 load("../../analysis/output/analytical_data.RData")
 library(ggplot2)
 library(texreg)
+library(MASS)
 ```
 
 # Introduction
@@ -37,33 +38,37 @@ The purpose of this study is to explore the relationship of homeownership and ho
 # Background
 Mayer and Lee’s double cohort analysis of homeownership reports the differences among native born and foreign born cohort. They evaluate the effect of income, education, language proficiency, family status, and their homeownership attainment (1998). Alba and Logan (1992) conducted a homeownership research across twelve ethnic groups. They explain that homeownership illustrate wealth accumulation associated with both socioeconomic and residential mobility. Additionally, house is a transferable asset benefitting their next generation. They also differentiate homeownership as an indicator of assimilation or stratification base on location and ethnic cohesion. Their findings conclude that homeownership contributes to a process of incorporation of minority groups. In alignment with Alba and Logan, “Assimilation today” reports a better education attainment and occupational choice of second generation Latinos. These rate increase similar to homeownership rate that rise from 9.3% in 1990 to 58% in 2008 (Mayers & Pitkin, 2010). They also suggest that integration happens at a faster rate when neighborhood residents have  access to citizenship and homeownership.
 
-Using homeownership as an indicator of assimilation that accelerate integration, this paper presents the statistical analysis of immigrants experience between those who own home and do not. Investigating how have homeownership influences these factors and their trajectories will helps identify housing strategy.
+Using homeownership as an indicator of assimilation that accelerate integration, this paper examines the statistical analysis of immigrants experience between those who own a home and do not. Investigating how have homeownership influences these factors and their trajectories will helps identify housing strategy.
 
 
 # Data and Methods
 Data in this study comes from Pew Hispanic Center 2011 National Survey of Latinos (NSL2011).The study focuses at Latinos immigrants includes their political views, values, attitudes towards immigration laws, identity and assimilation. The sample size of this survey is 1,220 respondants with 492 native born and 728 foreign born. 
 
-in San Francisco Bay Area. San Francisco Bay Area is chosen due to its high component of immigrants population in addition to the historical context of immigrants destination. The city also acts as both arrival city as well as destination city demonstrating combination of temporal and permanent settlement. Latinos ethnic group is chosen because of their high rate of population making the information more accessible than other ethnic groups. 
+Data from PEW has missing values. However, there is no impute value in this study as proportional odds logistic regression are not nested and look at each experience individually. 
+In examining self perception of identity, I would like to also run a glm model but somehow it does not work at all. The self perception of identity is coded into binary categories if the respondents say they are "Typical American" or "Different than American". Running LMP would lead to non sensial probability. Therefore I would need logit transformation to fit the probability into the two possible outcomes.   
 
-Proportional odds logistic regression
+
 
 ```{r polr-experience}
-model1<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model2<- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model3<- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model4<- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
-model5<- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=imputation)
+model1<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
+model2<- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
+model3<- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
+model4<- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
+model5<- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
 texreg(list(model1, model2, model3, model4, model5), digits=5,
        caption="Home Ownership and Immigrants Experience",
        caption.above = TRUE)
 
 ```
+
+
+
 ## Model 1: Immigrants Experience in the Treatment of the Poor.
 
 Model 1 looks specifically at immigrants' perspective on the treatment of the poor comparing their experience in their home country and in the US. Homeownership or nativity do not have any significance in their experience.
 
 ```{r figure 1, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1),
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_better_country)),
        aes(x=exper_better_country, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -78,7 +83,7 @@ ggplot(complete(imputations,1),
 Model 2 looks at immigrants' perspective on the moral values of society comparing their experience in their home country and in the US. Nativity impacts their moral values experience. In contrast, homeownership does not have positive impact in their perception. Immigrants rather perceive that the society is not better than their home country. 
 
 ```{r figure 2, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1),
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_moral)),
        aes(x=exper_moral, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -93,7 +98,7 @@ ggplot(complete(imputations,1),
 Model 3 looks specifically at immigrants' perspective on opportunity to get ahead comparing their experience in their home country and in the US. Neither homeownership nor nativity impact their opportunity experience. Regardless of the homeownership and nativity, the respondants strongly experience better experience in the US. 
 
 ```{r figure 3, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1),
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_opportunity)),
        aes(x=exper_opportunity, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -107,7 +112,8 @@ ggplot(complete(imputations,1),
 
 Model 4 looks specifically at immigrants' perspective on the condition of raising children comparing their experience in their home country and in the US. Nativity greatly effects their experience in raising children. This illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
 ```{r figure 4, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_raising_child)), 
+       aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
@@ -121,7 +127,7 @@ ggplot(complete(imputations,1), aes(x=exper_raising_child, y=..prop.., group=1, 
 Model 5 compares their experience in family ties in their home country and in the US. Both homeownership and nativity signify differences in family ties experience. Owning home strongly indicates weaker family ties even more than nativity. In this case, home ownership plays important roles in illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
 
 ```{r figure 5, echo=FALSE, fig.cap="", fig.align='center'}
-ggplot(complete(imputations,1),
+ggplot(subset(pew, !is.na(home_own) & !is.na(exper_family_ties)), 
        aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
@@ -131,13 +137,43 @@ ggplot(complete(imputations,1),
   theme_bw()
 ```
 
-# Results
+# Results and Interpretation
+All five models in this study do not show any statistically significant improvement in immigrants' experience in the case that they own a home. Regardless of their homeownership and nativlity, the study shows that the U.S. is seen as better than Latinos’ countries of origin in many ways. This is largely due to better opportunity in economy and raising next generation. There are multiple possible explanations of this outcome.
 
+As the data for this study comes from the 2011 PEW National Hispanic Survey, 2008 Economic regression possibly affected many immigrants' experience regarding their experience in treatment of the poor (model 1), experience in opportunity to get ahead (model 3), and experience in condition of raising children (model 4).
 
+Interestingly, model 2: Immigrants Experience in the Moral Values of Society illustrates that large number of respondents experience better moral values in their home country than in the US if they own home. It is possible that even if immigrants own a home, they experience spatial seggregation and difficulty in morgage and loans throughout the process of owning home. Additionally, owning a home can become financial burden especially during economic crisis. However, regardless of their experience in moral values owning home has critically improve the possiblity of self perception as "Typical American" see figure 6. 
+
+Model 5: the experience in family ties has noticable difference if immigrants own a home. As owning home has a symbolic meaning and financial commitment of permanent settlement in one country, it is reasonable to believe that homeownership effects the family ties in their country of origin. 
+
+```{r figure 6, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(subset(pew, !is.na(home_own) & !is.na(american_perc)), 
+       aes(x=american_perc, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Identity Perception") +
+  xlab("Self Perception") + ylab("property")+
+  theme_bw()
+```
+
+```{r figure 7, echo=FALSE, fig.cap="", fig.align='center'}
+ggplot(subset(pew, !is.na(home_own) & !is.na(culture_view)), 
+       aes(x=culture_view, y=..prop.., group=1, fill=nativity))+
+  geom_bar()+
+  guides(fill=FALSE)+
+  facet_grid(nativity~home_own)+
+  ggtitle("Identity Perception") +
+  xlab("Cultural Differences") + ylab("property")+
+  theme_bw()
+```
 
 # Conclusions
-Homeownership remains the key signifyier of self perception as acquiring American Dreams. However, the ownership do not positively effect immigrants' experiences. 
+Homeownership remains the key signifier of self perception as acquiring American Dreams. It symbolizes a compatibilities of foreign-born immigrants to become a typical American. However, the ownerships do not positively effect immigrants' experiences in the US. Longtitudinal study would help examine the difference experiences prior and after owning home. It would also portray comprehensive circumstance of immigrants experience with less effects of particular economic downturn, in this case the 2008 regression. Alternatively, crossectional study of experience in the us among different ethnic groups can give a baseline for comparison better than looking at one group alone.
 
+Additionally, it is impossible to explicitly conclude the assimilation without specific focus area such as economic assimilation or acculturation. Homeownership plays important role as a highest goal of American dream. However, further investigation of spatial integration or seggregation as well as experience in discrimination must be investigated. The decreasing property of immigrants experience in moral values raise a question of immigrants' pathway in acquiring home, their financial burden, household characteristic, and spatial integration.   
+
+Lastly, multiculturalism is the more prominant assimilation model in the US than the melting pot model.  This makes it possible for immigrants to identify themselves as typical American while having distinct culture than a typical American.  
 
 # References
 Alba, R., & Logan, J. (1992). Assimilation and Stratification in the Homeownership Patterns of Racial and Ethnic Groups. The International Migration Review, 26(4), 1314-1341. doi:10.2307/2546885
