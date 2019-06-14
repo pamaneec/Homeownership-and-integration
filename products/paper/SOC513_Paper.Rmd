@@ -49,15 +49,17 @@ In examining self perception of identity, I would like to also run a glm model b
 
 
 
-```{r polr-experience}
+```{r polr-experience, echo=FALSE, results='asis'}
 model1<- polr(exper_better_country~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
 model2<- polr(exper_moral~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
 model3<- polr(exper_opportunity~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
 model4<- polr(exper_raising_child~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
 model5<- polr(exper_family_ties~home_own+nativity+I(age-40)+I((age-40)^2), data=pew)
-texreg(list(model1, model2, model3, model4, model5), digits=5,
+texreg(list(model1, model2, model3, model4, model5), digits=4,
        caption="Home Ownership and Immigrants Experience",
-       caption.above = TRUE)
+       caption.above = TRUE,
+       custom.coef.names = c("Home ownership", "Foreign-born",
+                             "Age (centered on 40)", "Age (squared)"))
 
 ```
 
@@ -67,13 +69,12 @@ texreg(list(model1, model2, model3, model4, model5), digits=5,
 
 Model 1 looks specifically at immigrants' perspective on the treatment of the poor comparing their experience in their home country and in the US. Homeownership or nativity do not have any significance in their experience.
 
-```{r figure 1, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure1, echo=FALSE, fig.cap="Immigrants Experience: Treatment of the poor"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(exper_better_country)),
        aes(x=exper_better_country, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Immigrants Experience: Treatment of the poor") +
   xlab("Treatment of the poor") + ylab("property")+
   theme_bw()
 ```
@@ -82,13 +83,12 @@ ggplot(subset(pew, !is.na(home_own) & !is.na(exper_better_country)),
 
 Model 2 looks at immigrants' perspective on the moral values of society comparing their experience in their home country and in the US. Nativity impacts their moral values experience. In contrast, homeownership does not have positive impact in their perception. Immigrants rather perceive that the society is not better than their home country. 
 
-```{r figure 2, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure2, echo=FALSE, fig.cap="Immigrants Experience: the Moral Values of Society"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(exper_moral)),
        aes(x=exper_moral, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Immigrants Experience: the Moral Values of Society") +
   xlab("Moral Values of Society") + ylab("property")+
   theme_bw()
 ```
@@ -97,13 +97,12 @@ ggplot(subset(pew, !is.na(home_own) & !is.na(exper_moral)),
 
 Model 3 looks specifically at immigrants' perspective on opportunity to get ahead comparing their experience in their home country and in the US. Neither homeownership nor nativity impact their opportunity experience. Regardless of the homeownership and nativity, the respondants strongly experience better experience in the US. 
 
-```{r figure 3, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure3, echo=FALSE, fig.cap="Immigrants Experience: the Opportunity to Get Ahead"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(exper_opportunity)),
        aes(x=exper_opportunity, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Immigrants Experience: the Opportunity to Get Ahead") +
   xlab("Opportunity to Get Ahead") + ylab("property")+
   theme_bw()
 ```
@@ -111,13 +110,13 @@ ggplot(subset(pew, !is.na(home_own) & !is.na(exper_opportunity)),
 ## Model 4: Immigrants Experience in the condition of raising children
 
 Model 4 looks specifically at immigrants' perspective on the condition of raising children comparing their experience in their home country and in the US. Nativity greatly effects their experience in raising children. This illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
-```{r figure 4, echo=FALSE, fig.cap="", fig.align='center'}
+
+```{r figure4, echo=FALSE, fig.cap="Immigrants Experience: the Conditions for Raising Children"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(exper_raising_child)), 
        aes(x=exper_raising_child, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Immigrants Experience: the Conditions for Raising Children") +
   xlab("Conditions for Raising Children") + ylab("property")+
   theme_bw()
 ```
@@ -126,13 +125,12 @@ ggplot(subset(pew, !is.na(home_own) & !is.na(exper_raising_child)),
 
 Model 5 compares their experience in family ties in their home country and in the US. Both homeownership and nativity signify differences in family ties experience. Owning home strongly indicates weaker family ties even more than nativity. In this case, home ownership plays important roles in illustrates the disadvantages immigrants face raising their children if they are foreign-born. Homeownership does not have impact or give any benefit to immigrants in raising their children. 
 
-```{r figure 5, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure5, echo=FALSE, fig.cap="Immigrants Experience: the Strength of Family Ties"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(exper_family_ties)), 
        aes(x=exper_family_ties, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Immigrants Experience: the Strength of Family Ties") +
   xlab("Strength of Family Ties") + ylab("property")+
   theme_bw()
 ```
@@ -146,24 +144,22 @@ Interestingly, model 2: Immigrants Experience in the Moral Values of Society ill
 
 Model 5: the experience in family ties has noticable difference if immigrants own a home. As owning home has a symbolic meaning and financial commitment of permanent settlement in one country, it is reasonable to believe that homeownership effects the family ties in their country of origin. 
 
-```{r figure 6, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure6, echo=FALSE, fig.cap="Identity Perception"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(american_perc)), 
        aes(x=american_perc, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Identity Perception") +
   xlab("Self Perception") + ylab("property")+
   theme_bw()
 ```
 
-```{r figure 7, echo=FALSE, fig.cap="", fig.align='center'}
+```{r figure7, echo=FALSE, fig.cap="Cultural Differences"}
 ggplot(subset(pew, !is.na(home_own) & !is.na(culture_view)), 
        aes(x=culture_view, y=..prop.., group=1, fill=nativity))+
   geom_bar()+
   guides(fill=FALSE)+
   facet_grid(nativity~home_own)+
-  ggtitle("Identity Perception") +
   xlab("Cultural Differences") + ylab("property")+
   theme_bw()
 ```
